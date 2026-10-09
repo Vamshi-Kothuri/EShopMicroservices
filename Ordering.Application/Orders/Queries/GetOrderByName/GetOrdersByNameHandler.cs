@@ -20,7 +20,7 @@ namespace Ordering.Application.Orders.Queries.GetOrderByName
                                 .Include(o => o.OrderItems)
                                 .AsNoTracking()
                                 .Where(o => o.OrderName.Value.Contains(query.Name))
-                                .OrderBy(o => o.OrderName)
+                                .OrderBy(o => o.OrderName.Value)
                                 .ToListAsync();
             //var orderDtos =  ProjectToOrdersDto(orders);
             return new GetOrdersByNameResult(orders.ToOrderDtoList());
